@@ -11,16 +11,34 @@ import java.time.LocalDate;
 public class Main {
    public static void main (String[] args) {
 
-      // test crud operation
-
-
-      Employee employee = new Employee("mohamed rhziza","mohamed@gmail.com","it", BigDecimal.valueOf(20000.00),
-          LocalDate.now());
-
+      //* test operations
       EmployeeDao employeeDao = new EmployeeDao();
+      //! create
+      Employee employee = new Employee("mohamed rhziza",
+          "mohame2d@gmail.com",
+          "it",
+          BigDecimal.valueOf(20000.00),
+          LocalDate.now());
+      Employee employee1 = new Employee("test test",
+          "test@gmail.com",
+          "test",
+          BigDecimal.valueOf(20000.00),
+          LocalDate.now());
+      employeeDao.demoAddEmployee(employee);
+      employeeDao.demoAddEmployee(employee1);
+      //! read
+      employeeDao.demonstrateReadById(1);
+      employeeDao.demonstrateReadById(2);
+      //! read all
+      employeeDao.demonstrateReadAll();
+      //! update
+      Employee employeeUpdate = employeeDao.getEmployeeByI(1);
+      employeeUpdate.setName("ayoub laaraj");
+      employeeUpdate.setName("ayoub@gmail.com");
+      employeeUpdate.setSalary(new BigDecimal(20000));
+      employeeDao.demonstrateUpdate(employeeUpdate);
+      //! delete
+      employeeDao.demonstrateUpdate(employeeDao.getEmployeeByI(1));
 
-      Boolean isCreated = employeeDao.createEmployee(employee);
-
-      System.out.println(isCreated ? "Employee created" : "Employee not created");
    }
 }

@@ -11,6 +11,9 @@ public class Employee {
    private BigDecimal salary;
    private LocalDate hireDate;
 
+   // default constructor
+   public Employee(){}
+
    // full Constructor
    public Employee(int id, String name, String email, String department, BigDecimal salary, LocalDate hireDate) {
       this.id = id;
